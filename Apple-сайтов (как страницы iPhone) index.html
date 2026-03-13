@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Виталий Санников — Medical Strategist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== BASE ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+line-height:1.6;
+}
+
+/* ===== GOLD LIGHT ===== */
+
+.gold-light{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+background:
+radial-gradient(circle at 20% 30%, rgba(212,175,55,0.18), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(212,175,55,0.12), transparent 40%);
+animation:goldMove 14s infinite alternate ease-in-out;
+z-index:0;
+}
+
+@keyframes goldMove{
+
+0%{ transform:translate(0,0); }
+100%{ transform:translate(-60px,-40px); }
+
+}
+
+/* ===== NAVIGATION ===== */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(212,175,55,0.2);
+z-index:1000;
+}
+
+.logo{
+font-weight:600;
+letter-spacing:1px;
+}
+
+.menu{
+display:flex;
+gap:30px;
+}
+
+.menu a{
+color:#d4af37;
+text-decoration:none;
+font-size:15px;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+position:relative;
+z-index:2;
+}
+
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.9));
+z-index:-1;
+}
+
+.hero h1{
+font-size:clamp(40px,6vw,80px);
+font-weight:800;
+background:linear-gradient(90deg,#fff,#d4af37);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+margin-top:20px;
+font-weight:400;
+font-size:clamp(18px,2vw,26px);
+color:#d4af37;
+}
+
+.hero p{
+margin-top:25px;
+font-size:20px;
+max-width:650px;
+margin-left:auto;
+margin-right:auto;
+color:#ddd;
+}
+
+/* BUTTON */
+
+.cta{
+display:inline-block;
+margin-top:40px;
+padding:16px 42px;
+border-radius:40px;
+background:linear-gradient(90deg,#d4af37,#f2d77a);
+color:#000;
+font-weight:600;
+text-decoration:none;
+transition:0.4s;
+}
+
+.cta:hover{
+transform:scale(1.05);
+}
+
+/* ===== SCROLL SCENES ===== */
+
+.scene{
+height:120vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 10%;
+position:relative;
+z-index:2;
+}
+
+.scene-content{
+max-width:820px;
+opacity:0;
+transform:translateY(80px);
+transition:1s ease;
+}
+
+.scene-content.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.scene h2{
+font-size:clamp(30px,4vw,50px);
+margin-bottom:25px;
+color:#d4af37;
+}
+
+.scene p{
+font-size:22px;
+color:#bbb;
+}
+
+/* ===== SERVICES ===== */
+
+.services{
+margin-top:40px;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.service{
+font-size:24px;
+opacity:0.7;
+border-bottom:1px solid rgba(212,175,55,0.25);
+padding-bottom:10px;
+transition:0.3s;
+}
+
+.service:hover{
+opacity:1;
+color:#d4af37;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+padding:100px 10%;
+border-top:1px solid rgba(212,175,55,0.2);
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:20px;
+color:#999;
+z-index:2;
+position:relative;
+}
+
+footer a{
+color:#d4af37;
+text-decoration:none;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+.menu{
+display:none;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.scene{
+height:auto;
+padding:100px 8%;
+}
+
+.scene p{
+font-size:18px;
+}
+
+.service{
+font-size:20px;
+}
+
+footer{
+flex-direction:column;
+text-align:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="gold-light"></div>
+
+<nav>
+
+<div class="logo">Medical Strategy</div>
+
+<div class="menu">
+
+<a href="#approach">Подход</a> <a href="#strategy">Стратегия</a> <a href="#contact">Консультация</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<video autoplay muted loop playsinline poster="doctor.jpg">
+<source src="doctor.mp4" type="video/mp4">
+</video>
+
+<div>
+
+<h1>Виталий Санников</h1>
+
+<h2>Medical Strategist</h2>
+
+<p>
+Персональная медицинская стратегия
+для предпринимателей и людей,
+для которых энергия и здоровье —
+ключевой ресурс.
+</p>
+
+<a href="https://t.me/VitalySannikov" class="cta">
+Запросить консультацию
+</a>
+
+</div>
+
+</section>
+
+<section class="scene" id="approach">
+
+<div class="scene-content">
+
+<h2>Системный подход</h2>
+
+<p>
+
+Здоровье рассматривается как система.
+
+В анализ включаются:
+
+нервная система
+гормональный баланс
+питание
+физическая подготовка
+восстановление
+
+</p>
+
+</div>
+
+</section>
+
+<section class="scene" id="strategy">
+
+<div class="scene-content">
+
+<h2>Медицинская стратегия</h2>
+
+<div class="services">
+
+<div class="service">Персональная стратегия здоровья</div>
+<div class="service">Восстановление энергии и ресурса</div>
+<div class="service">Реабилитация после перегрузок</div>
+<div class="service">Оптимизация физической формы</div>
+<div class="service">Нутрициологическая стратегия</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="scene" id="contact">
+
+<div class="scene-content">
+
+<h2>Персональная консультация</h2>
+
+<p>
+
+Практика предполагает ограниченное
+количество пациентов для сохранения
+высокого уровня персонального внимания.
+
+</p>
+
+<br>
+
+<a href="https://t.me/VitalySannikov" class="cta">
+Связаться в Telegram
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<div>
+© 2026 Medical Strategy Practice
+</div>
+
+<div>
+<a href="https://t.me/VitalySannikov">Telegram</a>
+</div>
+
+</footer>
+
+<script>
+
+/* APPLE STYLE SCROLL */
+
+const scenes=document.querySelectorAll(".scene-content");
+
+function checkScroll(){
+
+scenes.forEach(scene=>{
+
+const rect=scene.getBoundingClientRect();
+
+if(rect.top < window.innerHeight*0.75){
+
+scene.classList.add("visible");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",checkScroll);
+
+checkScroll();
+
+</script>
+
+</body>
+</html>
